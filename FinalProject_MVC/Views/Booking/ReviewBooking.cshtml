@@ -1,0 +1,159 @@
+﻿@using Newtonsoft.Json
+@{
+    ViewData["Title"] = "ReviewBooking";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container-fluid bg-primary py-5 mb-5 hero-header">
+    <div class="container py-5">
+        <div class="row justify-content-center py-5">
+            <div class="col-lg-10 pt-lg-5 mt-lg-5 text-center">
+                <h1 class="display-3 text-white animated slideInDown">Các vị trí</h1>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb justify-content-center">
+                        <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
+                        <li class="breadcrumb-item text-white active" aria-current="page">Các vị tri</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+
+<h1>
+    Bạn vui lòng kiểm tra lại đặt chỗ
+</h1>
+<p>
+    Vui lòng xem lại chi tiết đặt chỗ của bạn trước khi tiếp tục đến bước thanh toán
+</p>
+
+@{
+    var jsonData = JsonConvert.DeserializeObject(ViewBag.JsonData);
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="row justify-content-center">
+                <div class="col-sm-6">
+                    <div class="card">
+                        <h5 class="card-header">
+                            Thông tin đặt chỗ
+                        </h5>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <img src="~/img/@jsonData.hinhanh" class="img-fluid" />
+                                </div>
+                                
+                                <div class="col-sm-8">
+                                    <h5 class="card-title">@jsonData.tenvitri</h5>
+                                    <p class="card-text">Mã đặt chỗ: @ViewBag.MaDatCho</p>
+                                    <p class="card-text">Ngày nhận phòng: @ViewBag.Ngaybatdau</p>
+                                    <p class="card-text">Ngày trả phòng: @ViewBag.Ngayketthuc</p>
+                                    <p class="card-text">Số ngày thuê: @ViewBag.Songaythue ngày</p>
+                                    <p class="card-text">Số lượng người: @ViewBag.Soluongnguoi người</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Chi tiết người liên lạc</h5>
+                            <hr />
+                            <p class="card-text">Tên: @User.Identity.Name</p>
+                            <p class="card-text">Email: @ViewBag.Email</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-10 mt-5">
+                    <div class="card">
+                        <h5 class="card-header">Chi tiết giá</h5>
+
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <p class="card-text">Lưu ý: Giá này đã kèm phí dịch vụ và thuế</p>
+                                    <h6 class="card-text">Giá thuê: @jsonData.giatien VNĐ</h6>
+                                    <h6 class="card-text">Số ngày thuê: @ViewBag.Songaythue ngày</h6>
+                                    @{
+                                        var tax = jsonData.giatien * jsonData.thue * ViewBag.Songaythue;
+                                    }
+                                    <h6 class="card-text">Giá thuế: @tax VNĐ</h6>
+                                    <h5 class="card-text">
+                                        Tổng tiền: @{
+                                            var total = jsonData.giatien * ViewBag.Songaythue + (@tax);
+                                        } @jsonData.giatien VNĐ x @ViewBag.Songaythue ngày = @total VNĐ
+                                    </h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <p class="card-text">
+                                Khi nhấn vào nút này bạn
+                                công nhận mình đã đọc và
+                                đồng ý với các Điều khoản & Điều kiện và
+                                Chính sách quyền riêng tư của chúng tôi
+                            </p>
+
+
+                            <form action="https://localhost:7001/api/booking/booking-camp" method="POST" id="my-form">
+                                <button type="submit" id="checkout-button" class="btn btn-primary">Gửi email xác nhận</button>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+
+             </div>
+        </div>
+    </div>
+
+</div>
+@section Scripts {
+    <script async
+        src="https://js.stripe.com/v3/buy-button.js">
+    </script>
+
+    <script async
+        src="https://js.stripe.com/v3/buy-button.js">
+    </script>
+    <script src="https://js.stripe.com/v3/"></script>
+
+    <script>
+        $(document).ready(function () {
+            // Attach a submit handler to the form
+            $('#my-form').submit(function (event) {
+                // Stop form from submitting normally
+                event.preventDefault();
+                console.log("Hell0")
+                // Get form data
+                var formData = {
+                    'vitriId': '@jsonData.vitriId',
+                    'ngaybatdau': '@ViewBag.Ngaybatdau',
+                    'ngayketthuc': '@ViewBag.Ngayketthuc',
+                    'soluongnguoi': '@jsonData.soluongnguoi'
+                };
+                // Send data to server using AJAX
+                // Access-Control-Allow-Origin
+                $.ajax({
+                    url: '/booking/booking-camp',
+                    type: 'POST',
+                    data: formData,
+                    success: function (response) {
+                        // Handle successful response from server
+                        //redirect to home page
+                        window.location.href = "/my-booking";
+                    },
+                    error: function (xhr, status, error) {
+                        // Handle error response from server
+                        console.log('Error:', error);
+                    }
+                });
+            });
+        });
+        
+        
+    </script>
+}

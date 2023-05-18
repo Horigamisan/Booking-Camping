@@ -1,0 +1,65 @@
+﻿@using Newtonsoft.Json
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container-fluid bg-primary py-5 mb-5 hero-header">
+    <div class="container py-5">
+        <div class="row justify-content-center py-5">
+            <div class="col-lg-10 pt-lg-5 mt-lg-5 text-center">
+                <h1 class="display-3 text-white mb-3 animated slideInDown">Tận hưởng chuyến cắm trại của bạn với chúng tôi</h1>
+                <p class="fs-4 text-white mb-4 animated slideInDown">Hãy để mọi áp lực được gỡ bỏ và tận hưởng chuyến hành trình</p>
+                <div class="card card-7 align-items-center justify-content-center d-flex">
+                    <div class="card-body">
+                        <form class="form" method="get" action="/booking/search">
+                            <div class="input-group input--medium">
+                                <label class="label">Check-In</label>
+                                <input class="input--style-1" type="text" name="Ngaybatdau" placeholder="mm/dd/yyyy" id="input-start">
+                            </div>
+                            <div class="input-group input--medium">
+                                <label class="label">Check-Out</label>
+                                <input class="input--style-1" type="text" name="Ngayketthuc" placeholder="mm/dd/yyyy" id="input-end">
+                            </div>
+                            <div class="input-group input--medium">
+                                <label class="label">Khách</label>
+                                <div class="input-group-icon js-number-input">
+                                    <div class="icon-con">
+                                        <span class="plus">+</span>
+                                        <span class="minus">-</span>
+                                    </div>
+                                    <input class="input--style-1 quantity" type="text" name="Soluongnguoi" value="2">
+                                </div>
+                            </div>
+                            <button class="btn-submit" type="submit">Tìm</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Head_Scripts{
+    <!-- Icons font CSS-->
+    <!-- Font special for pages-->
+    <!-- Vendor CSS-->
+    <link href="vendor/select2/select2.min.css" rel="stylesheet" media="all">
+    <link href="vendor/datepicker/daterangepicker.css" rel="stylesheet" media="all">
+
+    <link href="css/search.css" rel="stylesheet" media="all">
+
+}
+
+    @section Scripts {
+    <!-- Jquery JS-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <!-- Vendor JS-->
+    <script src="vendor/select2/select2.min.js"></script>
+    <script src="vendor/jquery-validate/jquery.validate.min.js"></script>
+    <script src="vendor/bootstrap-wizard/bootstrap.min.js"></script>
+    <script src="vendor/bootstrap-wizard/jquery.bootstrap.wizard.min.js"></script>
+    <script src="vendor/datepicker/moment.min.js"></script>
+    <script src="vendor/datepicker/daterangepicker.js"></script>
+    <!-- Main JS-->
+    <script src="js/global.js"></script>
+}

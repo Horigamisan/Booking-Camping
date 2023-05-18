@@ -1,0 +1,199 @@
+﻿
+@using Newtonsoft.Json
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container-fluid bg-primary py-5 mb-5 hero-header">
+    <div class="container py-5">
+        <div class="row justify-content-center py-5">
+            <div class="col-lg-10 pt-lg-5 mt-lg-5 text-center">
+                <h1 class="display-3 text-white animated slideInDown">Tìm chỗ</h1>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb justify-content-center">
+                        <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
+                        <li class="breadcrumb-item text-white active" aria-current="page">Tìm chỗ</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-xxl py-5">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Lọc</h5>
+                        <hr>
+                        <h6 class="card-subtitle mb-2 text-muted">Loại vị trí</h6>
+                        <select class="form-select" id="location">
+                            <option selected value="Tất cả">Tất cả</option>
+                            @{
+                                var types = JsonConvert.DeserializeObject(ViewBag.Types);
+                                foreach (var item in types)
+                                {
+                                                <option value="@item.loaivitriId">@item.tenloaivitri</option>
+                                }
+                            }
+                        </select>
+                        <hr>
+                        <h6 class="card-subtitle mb-2 text-muted">Theo giá</h6>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="< 100.000" id="price-1">
+                            <label class="form-check-label" for="price-1">
+                                Dưới 100,000đ
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="100.000 - 200.000" id="price-2">
+                            <label class="form-check-label" for="price-2">
+                                100,000đ - 200,000đ
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="200.000 - 500.000" id="price-3">
+                            <label class="form-check-label" for="price-3">
+                                200,000đ - 500,000đ
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="> 500.000" id="price-4">
+                            <label class="form-check-label" for="price-4">
+                                Trên 500,000đ
+                            </label>
+                        </div>
+                        <hr>
+                        <h6 class="card-subtitle mb-2 text-muted">Theo đánh giá</h6>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="1 sao" id="rate-1">
+                            <label class="form-check-label" for="rate-1">
+                                1 sao
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="2 sao" id="rate-2">
+                            <label class="form-check-label" for="rate-2">
+                                2 sao
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="3 sao" id="rate-3">
+                            <label class="form-check-label" for="rate-3">
+                                3 sao
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="4 sao" id="rate-4">
+                            <label class="form-check-label" for="rate-4">
+                                4 sao
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="5 sao" id="rate-5">
+                            <label class="form-check-label" for="rate-5">
+                                5 sao
+                            </label>
+                        </div>
+                        <hr>
+                        <h6 class="card-subtitle mb-2 text-muted">Theo dịch vụ</h6>
+
+                        @{
+                            var services = JsonConvert.DeserializeObject(ViewBag.Services);
+                            foreach (var item in services)
+                            {
+                                    <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="@item.dichvuId" id="services-@item.dichvuId">
+                                    <label class="form-check-label" for="services-@item.dichvuId">
+                                            @item.tenDichvu
+                                        </label>
+                                    </div>
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-9">
+                <div id="GetFilterProduct"></div>
+            </div>
+            
+</div>
+</div>
+</div>
+
+@section Scripts {
+    <script>
+    //Uncheck all form-check if one of them is checked, each form-check can only be checked once, apply for each type of form-check
+     
+    $(document).ready(function () {
+        $('input[type="checkbox"][id^=price-]').click(function () {
+            var inputValue = $(this).attr("id");
+            //parent form-check active and the other form-checks are disabled
+            $('input[type="checkbox"][id^=price-]').not(this).prop('checked', false);
+                GetFilterProduct();
+        });
+
+         $('input[type="checkbox"][id^=rate-]').click(function () {
+            var inputValue = $(this).attr("id");
+            //parent form-check active and the other form-checks are disabled
+            $('input[type="checkbox"][id^=rate-]').not(this).prop('checked', false);
+                GetFilterProduct();
+
+        });
+
+            $('input[type="checkbox"][id^=services-]').click(function () {
+                var inputValue = $(this).attr("id");
+                //parent form-check active and the other form-checks are disabled
+                GetFilterProduct();
+            });
+
+        //get type from id location
+        var selectBox = document.getElementById("location");
+        
+            selectBox.onchange = function () {
+                GetFilterProduct();
+            };
+        
+        function GetFilterProduct(){
+                var price = $('input[type="checkbox"][id^=price-]:checked').val();
+                var rate = $('input[type="checkbox"][id^=rate-]:checked').val();
+                var services = $('input[type="checkbox"][id^=services-]:checked').map(function () {
+                    return $(this).val();
+                }).get();
+                var ngaybatdau = `@ViewBag.ChiTietSearch.Ngaybatdau.ToString("yyyy-MM-dd")`;
+                var ngayketthuc = `@ViewBag.ChiTietSearch.Ngayketthuc.ToString("yyyy-MM-dd")`;
+                var soluong = @ViewBag.ChiTietSearch.Soluongnguoi;
+                //get type from id location
+                var selectBox = document.getElementById("location");
+                var types = selectBox.options[selectBox.selectedIndex].value;
+                console.log(types)
+                console.log(services)
+
+                $.ajax({
+                    url: "/booking/filter-search",
+                    type: "POST",
+                    data: {
+                        Ngaybatdau: ngaybatdau,
+                        Ngayketthuc: ngayketthuc,
+                        Soluongnguoi: soluong,
+                        Giatien: price,
+                        Diemdanhgia: rate,
+                        Loaivitri: types,
+                        Loaidichvu: services
+                    },
+                    success: function (data) {
+                        $('#GetFilterProduct').html(data);
+                    }
+                });
+        }
+            GetFilterProduct();
+    });
+
+    //
+    </script>
+}

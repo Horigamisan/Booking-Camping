@@ -1,0 +1,96 @@
+﻿@model FinalProject_MVC.Models.RegisterModel
+
+@{
+    ViewData["Title"] = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid bg-primary py-5 mb-5 hero-header">
+    <div class="container py-5">
+        <div class="row justify-content-center py-5">
+            <div class="col-lg-10 pt-lg-5 mt-lg-5 text-center">
+                <h1 class="display-3 text-white animated slideInDown">Đăng ký</h1>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb justify-content-center">
+                        <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
+                        <li class="breadcrumb-item text-white active" aria-current="page">Đăng ký</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row justify-content-center align-items-center">
+        <div class="col-md-4 border border-success rounded-2">
+            <form asp-action="Register">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="text-center mb-3">
+                    <h1>Đăng ký</h1>
+                </div>
+                <!-- Name input -->
+                <div class="form-outline form-group form-group mb-4">
+                    <label class="form-label" asp-for="Name">Họ tên</label>
+                    <input type="text" id="registerName" asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+
+                <!-- Email input -->
+                <div class="form-outline form-group form-group mb-4">
+                    <label class="form-label" asp-for="Email">Email</label>
+                    <input type="email" id="registerEmail" asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+
+                </div>
+
+                <!-- Password input -->
+                <div class="form-outline form-group mb-4">
+                    <label class="form-label" asp-for="Password">Mật khẩu</label>
+                    <input type="password" id="registerPassword" asp-for="Password" class="form-control" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+
+                </div>
+
+                <!-- Repeat Password input -->
+                <div class="form-outline form-group mb-4">
+                    <label class="form-label" asp-for="ConfirmPassword">Xác nhận mật khẩu</label>
+                    <input type="password" id="registerRepeatPassword" asp-for="ConfirmPassword"  class="form-control" />
+                    <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                </div>
+
+                <div class="form-outline form-group mb-4">
+                    <label class="form-label" asp-for="Phone">Số điện thoại</label>
+                    <input type="text" id="registerPhone" asp-for="Phone" class="form-control" />
+                    <span asp-validation-for="Phone" class="text-danger"></span>
+                </div>
+
+                <div class="form-outline form-group mb-4">
+                    <label class="form-label" asp-for="Address">Địa chỉ</label>
+                    <input type="text" id="registerAddress" asp-for="Address" class="form-control" />
+                    <span asp-validation-for="Address" class="text-danger"></span>
+                </div>
+
+                <!-- Checkbox -->
+                <div class="form-check d-flex justify-content-center mb-4">
+                    <input class="form-check-input me-2" type="checkbox" value="" id="registerCheck" checked
+                           aria-describedby="registerCheckHelpText" />
+                    <label class="form-check-label" for="registerCheck">
+                        Tôi đã đọc các quy định và điều khoản của website
+                    </label>
+                </div>
+
+                <!-- Submit button -->
+                <button type="submit" class="btn btn-primary btn-block mb-3">Đăng ký</button>
+            </form>
+            @if (TempData.ContainsKey("Message"))
+            {
+                <div class="alert alert-success">@TempData["Message"]</div>
+            }
+            @if (TempData.ContainsKey("ErrorMessage"))
+            {
+                <div class="alert alert-danger">@TempData["ErrorMessage"]</div>
+            }
+        </div>
+    </div>
+</div>

@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>FinalProject_API</name>
+    </assembly>
+    <members>
+        <member name="M:FinalProject_API.Controllers.AuthController.Login(FinalProject_API.Models.User)">
+             <summary>
+             Gửi request để lấy token.
+             </summary>
+             <param name="model"></param>
+             <returns>Đăng nhập hệ thống</returns>
+             <remarks>
+             Ví dụ:
+            
+                 POST /api/auth/login
+                 {
+                    "email": "something",
+                    "password": "passss"
+                 }
+            
+             </remarks>
+             <response code="200">Lấy token thành công</response>
+             <response code="400">Sai email hoặc mật khẩu</response>
+        </member>
+        <member name="M:FinalProject_API.Controllers.AuthController.GetAccount">
+            <summary>
+            Lấy chi tiết người dùng hiên tại.
+            </summary>
+            <returns>Lấy chi tiết người dùng hiên tại</returns>
+            <response code="200">Trả về thông tin người dùng hiện tại</response>
+            <response code="401">Không có quyền sử dụng</response>
+        </member>
+    </members>
+</doc>

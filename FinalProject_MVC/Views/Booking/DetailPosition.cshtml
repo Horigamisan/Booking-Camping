@@ -1,0 +1,104 @@
+﻿@using Newtonsoft.Json
+@inject IHttpContextAccessor HttpContextAccessor
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    var jsonData = JsonConvert.DeserializeObject(ViewBag.JsonData);
+    var DichVu = jsonData.dichvus;
+}
+
+<!--
+    Tạo trang chi tiết bằng bootstrap html
+-->
+<div class="container-fluid bg-primary py-5 mb-5 hero-header">
+    <div class="container py-5">
+        <div class="row justify-content-center py-5">
+            <div class="col-lg-10 pt-lg-5 mt-lg-5 text-center">
+                <h1 class="display-3 text-white animated slideInDown">Chi tiết vị trí</h1>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb justify-content-center">
+                        <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
+                        <li class="breadcrumb-item text-white active" aria-current="page">Chi tiết vị trí</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="row">
+                <div class="col-md-6">
+                    <h2>@jsonData.tenvitri</h2>
+                    <div class="mx-4">
+                        <div class="stars d-inline">
+                            @{
+                                decimal rating = jsonData.diemdanhgia;
+                                int fullStars = (int)rating;
+                                decimal halfStar = rating - fullStars;
+                                int emptyStars = 5 - fullStars - (halfStar > 0 ? 1 : 0);
+
+                                for (int i = 0; i < fullStars; i++)
+                                {
+                                    <small class="fa fa-star text-primary"></small>
+                                }
+                                if (halfStar > 0)
+                                {
+                                    <small class="fa fa-star-half-o text-primary"></small>
+                                }
+                                for (int i = 0; i < emptyStars; i++)
+                                {
+                                    <small class="fa fa-star-o text-primary"></small>
+                                }
+                            }
+                        </div>
+                        <h5>@jsonData.loaivitri.tenloaivitri</h5>
+                        <h5>Các loại dịch vụ</h5>
+
+                        @foreach (var i in DichVu)
+                        {
+                            <h6>@i.tenDichvu</h6>
+                        }
+                        <p>Giá: @jsonData.giatien VNĐ một đêm</p>
+                        <p>Số lượng người: @jsonData.soluongnguoi người</p>
+                    </div>
+                    @{
+                        if (User.Identity.IsAuthenticated)
+                        {
+                            <h5>Thông tin đặt của bạn</h5>
+                            <div class="mx-4">
+                                <p>Ngày đặt: @ViewBag.Ngaybatdau</p>
+                                <p>Ngày trả: @ViewBag.Ngayketthuc</p>
+                                <p>Số lượng người: @ViewBag.Soluongnguoi người</p>
+                            </div>
+                            <a asp-action="ReviewBooking" asp-controller="Booking"
+                                                        asp-route-id="@jsonData.vitriId"
+                                                        asp-route-soluongnguoi="@ViewBag.Soluongnguoi"
+                                                        asp-route-ngaybatdau="@ViewBag.Ngaybatdau"
+                                                        asp-route-ngayketthuc="@ViewBag.Ngayketthuc"
+                                                        class="btn btn-primary btn-block">Đặt ngay</a>
+                        }
+                        else
+                        {
+                            <h5>Đăng nhập để đặt</h5>
+                            <a asp-action="Login" asp-controller="Auth" class="btn btn-primary btn-block">Đăng nhập</a>
+                        }
+                    }
+
+                    
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <img src="~/img/@jsonData.hinhanh" alt="@jsonData.Tenvitri" class="">
+        </div>
+    </div>
+
+    @Html.Raw(jsonData.motachitiet)
+</div>
+
+

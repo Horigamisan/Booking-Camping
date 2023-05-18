@@ -1,0 +1,120 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = FinalProject_MVC
+build_property.RootNamespace = FinalProject_MVC
+build_property.ProjectDir = D:\CLASSWORK\HK2 - 2022,2023\Service-Oriented Architecture\LAB\FinalProject\FinalProject\FinalProject_MVC\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = D:\CLASSWORK\HK2 - 2022,2023\Service-Oriented Architecture\LAB\FinalProject\FinalProject\FinalProject_MVC
+build_property._RazorSourceGeneratorDebug = 
+
+[D:/CLASSWORK/HK2 - 2022\,2023/Service-Oriented Architecture/LAB/FinalProject/FinalProject/FinalProject_MVC/Areas/Admin/Views/Admin/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CLASSWORK/HK2 - 2022\,2023/Service-Oriented Architecture/LAB/FinalProject/FinalProject/FinalProject_MVC/Areas/Admin/Views/DatCho/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcRGF0Q2hvXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CLASSWORK/HK2 - 2022\,2023/Service-Oriented Architecture/LAB/FinalProject/FinalProject/FinalProject_MVC/Areas/Admin/Views/DatCho/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcRGF0Q2hvXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CLASSWORK/HK2 - 2022\,2023/Service-Oriented Architecture/LAB/FinalProject/FinalProject/FinalProject_MVC/Areas/Admin/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CLASSWORK/HK2 - 2022\,2023/Service-Oriented Architecture/LAB/FinalProject/FinalProject/FinalProject_MVC/Areas/Admin/Views/Shared/_MyLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9NeUxheW91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CLASSWORK/HK2 - 2022\,2023/Service-Oriented Architecture/LAB/FinalProject/FinalProject/FinalProject_MVC/Areas/Admin/Views/Shared/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9WaWV3SW1wb3J0cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CLASSWORK/HK2 - 2022\,2023/Service-Oriented Architecture/LAB/FinalProject/FinalProject/FinalProject_MVC/Areas/Admin/Views/Shared/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9WaWV3U3RhcnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CLASSWORK/HK2 - 2022\,2023/Service-Oriented Architecture/LAB/FinalProject/FinalProject/FinalProject_MVC/Views/Auth/AccessDenied.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aFxBY2Nlc3NEZW5pZWQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CLASSWORK/HK2 - 2022\,2023/Service-Oriented Architecture/LAB/FinalProject/FinalProject/FinalProject_MVC/Views/Auth/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CLASSWORK/HK2 - 2022\,2023/Service-Oriented Architecture/LAB/FinalProject/FinalProject/FinalProject_MVC/Views/Auth/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aFxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CLASSWORK/HK2 - 2022\,2023/Service-Oriented Architecture/LAB/FinalProject/FinalProject/FinalProject_MVC/Views/Auth/PageNotFound.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aFxQYWdlTm90Rm91bmQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CLASSWORK/HK2 - 2022\,2023/Service-Oriented Architecture/LAB/FinalProject/FinalProject/FinalProject_MVC/Views/Auth/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aFxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CLASSWORK/HK2 - 2022\,2023/Service-Oriented Architecture/LAB/FinalProject/FinalProject/FinalProject_MVC/Views/Auth/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aFxSZWdpc3Rlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CLASSWORK/HK2 - 2022\,2023/Service-Oriented Architecture/LAB/FinalProject/FinalProject/FinalProject_MVC/Views/Booking/DetailPosition.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va2luZ1xEZXRhaWxQb3NpdGlvbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CLASSWORK/HK2 - 2022\,2023/Service-Oriented Architecture/LAB/FinalProject/FinalProject/FinalProject_MVC/Views/Booking/GetFilterSearch.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va2luZ1xHZXRGaWx0ZXJTZWFyY2guY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CLASSWORK/HK2 - 2022\,2023/Service-Oriented Architecture/LAB/FinalProject/FinalProject/FinalProject_MVC/Views/Booking/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va2luZ1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CLASSWORK/HK2 - 2022\,2023/Service-Oriented Architecture/LAB/FinalProject/FinalProject/FinalProject_MVC/Views/Booking/ReviewBooking.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va2luZ1xSZXZpZXdCb29raW5nLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CLASSWORK/HK2 - 2022\,2023/Service-Oriented Architecture/LAB/FinalProject/FinalProject/FinalProject_MVC/Views/Booking/Search.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va2luZ1xTZWFyY2guY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CLASSWORK/HK2 - 2022\,2023/Service-Oriented Architecture/LAB/FinalProject/FinalProject/FinalProject_MVC/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CLASSWORK/HK2 - 2022\,2023/Service-Oriented Architecture/LAB/FinalProject/FinalProject/FinalProject_MVC/Views/Home/MyBooking.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxNeUJvb2tpbmcuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CLASSWORK/HK2 - 2022\,2023/Service-Oriented Architecture/LAB/FinalProject/FinalProject/FinalProject_MVC/Views/Home/Search.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxTZWFyY2guY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CLASSWORK/HK2 - 2022\,2023/Service-Oriented Architecture/LAB/FinalProject/FinalProject/FinalProject_MVC/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CLASSWORK/HK2 - 2022\,2023/Service-Oriented Architecture/LAB/FinalProject/FinalProject/FinalProject_MVC/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CLASSWORK/HK2 - 2022\,2023/Service-Oriented Architecture/LAB/FinalProject/FinalProject/FinalProject_MVC/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CLASSWORK/HK2 - 2022\,2023/Service-Oriented Architecture/LAB/FinalProject/FinalProject/FinalProject_MVC/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CLASSWORK/HK2 - 2022\,2023/Service-Oriented Architecture/LAB/FinalProject/FinalProject/FinalProject_MVC/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-egsk1gmrq5

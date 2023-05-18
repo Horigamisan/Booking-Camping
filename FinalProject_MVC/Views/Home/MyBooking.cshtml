@@ -1,0 +1,98 @@
+﻿@using Newtonsoft.Json
+@{
+    ViewData["Title"] = "MyBooking";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container-fluid bg-primary py-5 mb-5 hero-header">
+    <div class="container py-5">
+        <div class="row justify-content-center py-5">
+            <div class="col-lg-10 pt-lg-5 mt-lg-5 text-center">
+                <h1 class="display-3 text-white animated slideInDown">Đặt chỗ của tôi</h1>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb justify-content-center">
+                        <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
+                        <li class="breadcrumb-item text-white active" aria-current="page">Đặt chỗ của tôi</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+@{
+    var jsonData = JsonConvert.DeserializeObject(ViewBag.JsonData);
+
+    <div class="container-fluid">
+            <div class="card border-danger shadow mb-4">
+                <div class="card-header bg-danger py-3">
+                    <h6 class="m-0 font-weight-bold text-white">Đặt chỗ của tôi</h6>
+                </div>
+                <div class="card-body">
+                    <div class="bs-example" style="text-align:right; padding-bottom:10px;">
+                        <div class="btn-group">
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>Mã đặt chỗ</th>
+                                    <th>Tên vị trí</th>
+                                    <th>Ngày đặt</th>
+                                    <th>Ngày bắt đầu</th>
+                                    <th>Ngày kết thúc</th>
+                                    <th>Số lượng người</th>
+                                    <th>Tổng tiền</th>
+                                    <th>Trạng thái</th>
+                                    <th>Thanh toán</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @{
+                                var Number = 1;
+                                }
+                                @foreach (var datcho in jsonData)
+                            {
+                                    <tr>
+
+                                        <td>@datcho.datchoId</td>
+                                        <td>@datcho.vitri</td>
+                                        <td>@datcho.ngaydatcho</td>
+                                        <td>@datcho.ngaybatdau</td>
+                                        <td>@datcho.ngayketthuc</td>
+                                        <td>@datcho.soluongnguoi</td>
+                                        <td>@datcho.tongtien VNĐ</td>
+                                        <td>@datcho.trangthaidatcho</td>
+
+                                        <td>
+                                            @if (datcho.trangthaidatcho == "Đã đặt")
+                                        {
+                                                <a href="https://localhost:7001/api/booking/check-out/@datcho.datchoId/@datcho.maxacnhan" class="btn btn-success">Thanh toán</a>
+                                        }
+                                        </td>
+
+                                    </tr>
+                            }
+                            </tbody>
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+    </div>
+}
+@section Head_Scripts{
+    <link href="~/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+
+}
+@section Scripts
+    {
+    <!-- Page level plugins -->
+    <script src="~/vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="~/js/demo/datatables-demo.js"></script>
+
+}
+
